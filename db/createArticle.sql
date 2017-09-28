@@ -1,0 +1,1 @@
+INSERT INTO articles (title, imgurl, article) VALUES($1, $2, $3)
