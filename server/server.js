@@ -19,6 +19,6 @@ const express = require('express')
 
     app.get('/api/articles', articleController.readArticle);
     app.post('/api/articles', articleController.createArticle);
-    app.put('/api/articles/:id', articleController.updateArticle);
+    app.patch('/api/articles/:id', articleController.updateArticle);
     app.delete('/api/articles/:id', articleController.deleteArticle);
 

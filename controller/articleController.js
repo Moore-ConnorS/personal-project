@@ -20,8 +20,9 @@ module.exports = {
     updateArticle: ( req, res ) => {
         const db = req.app.get('db');
         const { params } = req
+    
 
-        db.updateArticles([ req.params.id ])
+        db.updateArticle([ req.params.id, req.body.title, req.body.article, req.body.imgurl ])
         .then( articles => { res.status(200).send() })
         .catch((err) => {
             console.log(err)
@@ -31,7 +32,7 @@ module.exports = {
     deleteArticle: ( req, res ) => {
         const db = req.app.get('db');
 
-        db.deleteProduct([ req.params.id ])
+        db.deleteArticle([ req.params.id ])
         .then( () => res.status(200).send())
         .catch( (err) => {
             console.log(err)
