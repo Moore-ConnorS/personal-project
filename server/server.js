@@ -4,7 +4,7 @@ const express = require('express')
     , bodyParser = require('body-parser')
     , massive = require('massive')
     , cors = require('cors')
-    , articleController = require('./../controller/articleController');
+    , articleController = require('./controller/articleController');
     // , articleController = require('./articleController')
 
     const app = express();

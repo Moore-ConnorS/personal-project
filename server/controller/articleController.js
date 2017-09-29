@@ -1,9 +1,9 @@
 module.exports = {
     createArticle: (req, res) => {
         const db = req.app.get('db');
-        const { title, imgurl, article } = req.body;
+        const { title, description, imgurl, article } = req.body;
 
-        db.createArticle([title, imgurl, article])
+        db.createArticle([title, description, imgurl, article])
         .then( () => res.status(200).send() )
         .catch((err) => {
             console.log(err)
@@ -22,7 +22,7 @@ module.exports = {
         const { params } = req
     
 
-        db.updateArticle([ req.params.id, req.body.title, req.body.article, req.body.imgurl ])
+        db.updateArticle([ req.params.id, req.body.title, req.body.description, req.body.article, req.body.imgurl ])
         .then( articles => { res.status(200).send() })
         .catch((err) => {
             console.log(err)
