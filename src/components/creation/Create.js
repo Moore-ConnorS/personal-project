@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 
@@ -44,13 +45,21 @@ export default class Create extends Component {
 
         return(
             <div>
-                {/* {router} */}
-                {/* <Link to='/create'></Link> */}
+                <Link to='/'>
+                Back to Home
+                </Link><br/>
+                Title:<br/>
                 <input value={ title } onChange={ (e) => this.handleChange('title', e.target.value) }/>
+                <br/> Description: <br/>
                 <input value={ description } onChange={ (e) => this.handleChange('description', e.target.value) }/>
+                <br/> Image URL: <br/>
                 <input value={ imgurl } onChange={ (e) => this.handleChange('imgurl', e.target.value) }/>
+                <br/> Article: <br/>
                 <input value={ article } onChange={ (e) => this.handleChange('article', e.target.value) }/>
+                <br/>
+                <Link to='/'>
                 <button onClick={ this.create }> Create </button>
+                </Link>
             </div>
         )
     }
