@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+
+import Navbar from './../navbar/Navbar';
+import Delete from './../Delete/Delete'
 
 
 export default class Home extends Component {
@@ -10,17 +12,23 @@ export default class Home extends Component {
           readArticles: [],
           bbcnews: []
         }
+
+        this.fetchArticles = this.fetchArticles.bind(this)
+      }
+
+      fetchArticles(){
+        axios.get('/api/articles').then( res => {
+            this.setState({
+              readArticles:res.data
+            })
+          })  
       }
      
       
       componentDidMount() {
-     
-    
-        axios.get('/api/articles').then( res => {
-          this.setState({
-            readArticles:res.data
-          })
-        }) 
+
+        this.fetchArticles()
+
         
         axios.get('https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=8763d79006ca46f59fd7f391a8ada86a')
           .then(res => {
@@ -32,7 +40,7 @@ export default class Home extends Component {
       
       render() {
         console.log(this.state.readArticles)
-        const articles = this.state.readArticles.map(function(article){
+        const articles = this.state.readArticles.map((article) => {
           console.log(article)
         return (
             <div key ={ article.id }>
@@ -41,6 +49,7 @@ export default class Home extends Component {
               </h2>
               <img src={article.imgurl}/>
               <p>{article.description}</p>
+              <Delete fetchArticles={ this.fetchArticles } id={ article.id }/>
     
     
     
@@ -61,9 +70,7 @@ export default class Home extends Component {
       })
       return (
         <div>
-        <Link to='/create'>
-            Create
-        </Link>
+          <Navbar />
           {liveNews}
           {articles}
         </div>

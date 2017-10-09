@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Navbar from './../navbar/Navbar'
 
 
 
@@ -45,9 +46,7 @@ export default class Create extends Component {
 
         return(
             <div>
-                <Link to='/'>
-                Back to Home
-                </Link><br/>
+               <Navbar/>
                 Title:<br/>
                 <input value={ title } onChange={ (e) => this.handleChange('title', e.target.value) }/>
                 <br/> Description: <br/>
