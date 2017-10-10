@@ -8,23 +8,15 @@ export default class Navbar extends Component {
     render(){
         return(
             <div className='navbar'>
-            <ul>
-            <li>
-            <Link to= '/'>
+            <Link className='navButton' to= '/'>
             <h2>CNC</h2>
             </Link>
-            </li>
-            <li>
-            <Link to='/create'>
+            <Link className='navButton' to='/create'>
             <h2>Create</h2>
             </Link>
-            </li>
-            <li>
-            <Link to='/weather'>
+            <Link className='navButton' to='/weather'>
             <h2>Weather</h2>
             </Link>
-            </li>
-            </ul>
             </div>
         )
     }

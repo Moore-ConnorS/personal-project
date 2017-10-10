@@ -1,5 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .navbar {
-    background-color: red;
+    background-color: #4960BD;
     height: 75px;
     width: 100%;
     margin: 0;
@@ -9,12 +14,17 @@ ul {
 
     list-style-type: none;
 
+
 }
 
-li {
+.navButton {
     float: left;
     text-decoration: none;
     color: white;
     display: block;
     padding: 0px 16px;
+}
+
+.navButton:hover {
+    color: gray;
 }
