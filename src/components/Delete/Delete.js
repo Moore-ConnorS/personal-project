@@ -27,6 +27,8 @@ export default class Delete extends Component {
 
 
     render(){
+
+     
         return(
             <div>
                 <button onClick={ this.toggle } disabled={ this.state.showConfirm}>Delete</button>

@@ -61,7 +61,7 @@ export default class Create extends Component {
                        <div className='title'>
                         <br/> Description: <br/>
                        </div>
-                        <input className="descriptionInput" value={ description } onChange={ (e) => this.handleChange('description', e.target.value) }/>
+                        <textarea className="descriptionInput" value={ description } onChange={ (e) => this.handleChange('description', e.target.value) }/>
                        <div className='title'>
                         <br/> Image URL: <br/>
                        </div>

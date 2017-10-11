@@ -35,8 +35,8 @@
 
 .descriptionInput {
     width: 700px;
-    padding: 0 0 200px 0;
-    font-size: 14px;
+    padding: 0 0 100px 0;
+    font-size: 16px;
     border: 1px solid black;
 }
 
@@ -57,6 +57,8 @@
 .createBtn {
     background-color: red;
     margin: 10px;
+    font-size: 16px;
+    font-family: sans-serif;
     color: white;
     height: 30px;
     width: 75px;

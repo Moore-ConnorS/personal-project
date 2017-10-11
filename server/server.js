@@ -17,7 +17,8 @@ const express = require('express')
         app.listen(port, () => console.log('Ship docked at port', port))
     })
 
-    app.get('/api/articles', articleController.readArticle);
+    app.get('/api/articles', articleController.readArticles);
+    app.get('/api/articles/:id', articleController.readOneArticle);
     app.post('/api/articles', articleController.createArticle);
     app.patch('/api/articles/:id', articleController.updateArticle);
     app.delete('/api/articles/:id', articleController.deleteArticle);

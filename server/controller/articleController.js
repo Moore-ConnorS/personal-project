@@ -11,9 +11,15 @@ module.exports = {
 
     },
 
-    readArticle: ( req, res ) => {
-        req.app.get('db').readArticle().then( articles => {
+    readArticles: ( req, res ) => {
+        req.app.get('db').readArticles().then( articles => {
             res.status(200).send(articles);
+        }).catch((err) => {console.log(err)})
+    },
+
+    readOneArticle: (req, res ) => {
+        req.app.get('db').readOneArticle([req.params.id]).then( articles => {
+            res.status(200).send(articles)
         }).catch((err) => {console.log(err)})
     },
 
@@ -22,7 +28,7 @@ module.exports = {
         const { params } = req
     
 
-        db.updateArticle([ req.params.id, req.body.title, req.body.description, req.body.article, req.body.imgurl ])
+        db.updateArticle([ req.params.id, req.body.title, req.body.description, req.body.imgurl, req.body.article ])
         .then( articles => { res.status(200).send() })
         .catch((err) => {
             console.log(err)

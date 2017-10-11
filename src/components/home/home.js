@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 import Navbar from './../navbar/Navbar';
-import Delete from './../Delete/Delete'
+import Delete from './../Delete/Delete';
+
 
 
 export default class Home extends Component {
@@ -39,9 +41,7 @@ export default class Home extends Component {
       }
       
       render() {
-        console.log(this.state.readArticles)
         const articles = this.state.readArticles.map((article) => {
-          console.log(article)
         return (
             <div key ={ article.id }>
               <h2>
@@ -50,6 +50,9 @@ export default class Home extends Component {
               <img src={article.imgurl}/>
               <p>{article.description}</p>
               <Delete fetchArticles={ this.fetchArticles } id={ article.id }/>
+              <Link to='/edit'>
+              <button>Edit</button>
+              </Link>
     
     
     
@@ -57,7 +60,7 @@ export default class Home extends Component {
         )
       })
     
-      const liveNews = this.state.bbcnews.map(function(news){
+      const liveNews = this.state.bbcnews.map((news) => {
         return (
           <div key={news.id}>
             <h2>
