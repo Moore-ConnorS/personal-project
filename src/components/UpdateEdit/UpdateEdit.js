@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 import Navbar from './../navbar/Navbar'
+import Updater from './Updater'
 
 export default class UpdateEdit extends Component {
     constructor(props){
@@ -10,38 +12,27 @@ export default class UpdateEdit extends Component {
             readOneArticle: []
         }
 
-        this.edit = this.edit.bind( this )
-        this.grabArticle = this.grabArticle.bind( this )
     }
 
-    grabArticle(){
-        axios.get(`api/articles/${this.props.id}`).then(res => {
+    componentDidMount(){
+        
+        axios.get(`api/articles/${this.props.match.params.id}`).then(res => {
             this.setState({
                 readOneArticle: res.data
             })
         })
     }
-    
-    edit(){
-        axios.patch(`api/articles/${this.props.id}`).then(() => {
-            this.props.grabArticle()
-        }); 
-    }
-
-
 
     render(){
       
-        const article = this.state.readOneArticle.map((articles) => {
+        const article = this.state.readOneArticle.map((article) => {
             return(
-                <div key={ article.id}>
-               <h2> {articles.title} </h2>
-                </div>
+                
+                <Updater key={ article.id } article={article} />
             )
         })
 
-        return( 
-          
+        return(
             <div>
                 <Navbar />
                 {article}

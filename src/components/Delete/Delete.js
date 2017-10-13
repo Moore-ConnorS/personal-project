@@ -20,6 +20,7 @@ export default class Delete extends Component {
     }
 
     remove() {
+    
        axios.delete(`/api/articles/${this.props.id}`).then(() => {
           this.props.fetchArticles()
        })

@@ -5,7 +5,7 @@ const express = require('express')
     , massive = require('massive')
     , cors = require('cors')
     , articleController = require('./controller/articleController');
-    // , articleController = require('./articleController')
+ 
 
     const app = express();
     app.use( bodyParser.json() );

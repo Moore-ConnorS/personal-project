@@ -1,8 +1,9 @@
 .navbar {
-    background-color: #4960BD;
-    height: 75px;
+    background-color: #1835A7;
+    height: 60px;
     width: 100%;
-    margin: 0;
+    margin: 0 0 50px 0;
+    border: solid 1px #1835A7;
 }
 
 ul {
@@ -12,12 +13,47 @@ ul {
 
 }
 
+.interactionContainer {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: stretch;
+}
+
+.linkBox {
+    padding: 0 30px 0 0 
+}
+
+.fakeSearch {
+    margin: 0 20px 0 0;
+}
+
+.logo {
+    background-color: white;
+    float: left;
+    text-decoration: none;
+    display: block;
+    padding: 0px 20px 0px 20px;
+    letter-spacing: 4px;
+    height: 60px;
+}
+
+.logoText {
+    color: #1835A7;
+    font-weight: bold;
+    font-size: 28px;
+}
+
 .navButton {
     float: left;
     text-decoration: none;
     color: white;
     display: block;
     padding: 0px 16px;
+    height: 60px;
+    border-right: solid 1px white;
 }
 
 .navButton:hover {

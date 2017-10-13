@@ -1,0 +1,65 @@
+.pageBox {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    background-color: rgb(173, 173, 173);
+    margin: 0;
+}
+
+.pageTitle {
+    font-size: 36px;
+    font-weight: 900;
+    padding: 10px 0px 10px 0px;
+    text-decoration: underline;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.titleInput {
+    width: 700px;
+    height: 30px;
+    font-size: 16px;
+    border: 1px solid black;
+}
+
+.descriptionInput {
+    width: 700px;
+    padding: 0 0 100px 0;
+    font-size: 16px;
+    border: 1px solid black;
+}
+
+.imageInput {
+    height: 30px;
+    width: 700px;
+    font-size: 16px;
+    border: 1px solid black
+}
+
+.articleInput {
+    width: 700px;
+    padding: 0 0 300px 0;
+    font-size: 14px;
+    border: 1px solid black
+}
+
+.editBtn {
+    background-color: red;
+    margin: 10px;
+    font-size: 16px;
+    font-family: sans-serif;
+    color: white;
+    height: 30px;
+    width: 75px;
+}
