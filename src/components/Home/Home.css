@@ -1,13 +1,40 @@
 .apiBackground {
-    height: 375px;
-    width: 700px;
+    height: 225px;
+    width: 375px;
 }
 
 .bbcContainer {
+    /* border: solid 1px blue; */
     display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
-	align-content: center;
+    align-content: center;
+    margin: 0 30px 20px 30px;
 }
+
+.articleContainer {
+    /* border: solid 1px red; */
+    width: 375px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+.customArticleImg {
+    height: 225px;
+    width: 400px;
+}
+
+.customContainer {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+    margin: 30px 0 0 0;
+}
+

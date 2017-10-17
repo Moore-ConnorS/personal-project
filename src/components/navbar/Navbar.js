@@ -19,11 +19,8 @@ export default class Navbar extends Component {
                         <Link className='navButton' to='/create'>
                             <h2>Create</h2>
                         </Link>
-                        <Link className='navButton' to='/weather'>
-                            <h2>Weather</h2>
-                        </Link>
-                        <Link className='navButton' to='/'>
-                        <h2>Sports</h2>
+                        <Link className='navButton' to='/login'>
+                        <h2>Login</h2>
                         </Link>
                     </div>
                     <input className='fakeSearch' type='text' placeholder='search'/>

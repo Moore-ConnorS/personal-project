@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios'
-
+import axios from 'axios';
 
 import Navbar from './../navbar/Navbar'
-import UpdaterInput from './UpdaterInput'
 
-export default class UpdateEdit extends Component {
+
+export default class BBCArticle extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -23,21 +22,27 @@ export default class UpdateEdit extends Component {
         })
     }
 
+
     render(){
-      
+
         const article = this.state.readOneArticle.map((article) => {
             return(
-                
-                <UpdaterInput key={ article.id } article={article} />
+                <div>
+                <h1>{article.title}</h1>
+                <h3>{article.description}</h3>
+                <img src={article.imgurl}/>
+                <p>{article.article}</p>
+                </div>
             )
         })
-
+    
         return(
             <div>
                 <Navbar />
                 {article}
+
+
             </div>
-               
         )
     }
 }

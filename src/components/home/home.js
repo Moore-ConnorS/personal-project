@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import './Home.css';
 import Navbar from './../navbar/Navbar';
 import Delete from './../Delete/Delete';
+import Weather from './../weather/Weather';
+
 
 
 
@@ -42,47 +44,53 @@ export default class Home extends Component {
       
       render() {
         const articles = this.state.readArticles.map((article) => {
-        return (
-            <div key ={ article.id }>
+          return (
+            <div className='articleContainer' key ={ article.id }>
+        <Link to={`/articles/${article.id}`}>
+              <img className='customArticleImg'src={article.imgurl}/>
               <div>
                 <h2>
                 {article.title}
                 </h2>
               </div>
-              <img src={article.imgurl}/>
               <p>{article.description}</p>
+          </Link>
               <Delete fetchArticles={ this.fetchArticles } id={ article.id }/>
               <Link to={`/edit/${article.id}`}>
               <button>Edit</button>
               </Link>
-    
-    
-    
             </div>
+    
+    
+    
         )
       })
     
       const liveNews = this.state.bbcnews.map((news, i) => {
         return (
-          <div className='bbcContainer' key={i}>
-            <div>
-              <img className="apiBackground" src={news.urlToImage}/> 
+          <div key={i}>
+            <div className='articleContainer'>
+              <a href={news.url}>
+              <img className="apiBackground" src={news.urlToImage} alt={news.description}/> 
               <div>
-                <h2>
-                  {news.title}
-                </h2>
+                <h2>{news.title}</h2>
                 <p>{news.description}</p>
               </div>
-            </div>
-              
+              </a>
+            </div>    
           </div>
         )
       })
       return (
         <div>
           <Navbar />
-          {liveNews}
-          {articles}
+          <div className='bbcContainer'>
+            {liveNews}
+          </div>
+          <Weather />
+          <div className='customContainer'>
+            {articles}
+          </div>
         </div>
         
       )

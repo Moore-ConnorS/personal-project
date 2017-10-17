@@ -1,0 +1,1 @@
+INSERT INTO adminUser (username, password) VALUES ($1, $2)
