@@ -34,7 +34,7 @@ export default class Home extends Component {
 
         this.fetchArticles()
 
-        axios.get('https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=8763d79006ca46f59fd7f391a8ada86a')
+        axios.get(`https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=${process.env.REACT_APP_NEWS}`)
           .then(res => {
             this.setState({
             bbcnews: res.data.articles

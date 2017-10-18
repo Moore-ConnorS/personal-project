@@ -13,7 +13,7 @@ export default class Weather extends Component {
 
     componentDidMount() {
 
-        axios.get('http://api.wunderground.com/api/b74ef342fd46d9ef/forecast/q/AZ/Phoenix.json')
+        axios.get(`${process.env.REACT_APP_WEATHER}`)
         .then(res => {
             this.setState({
             weather: res.data.forecast.simpleforecast.forecastday

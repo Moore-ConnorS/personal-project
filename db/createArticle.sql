@@ -1,1 +1,1 @@
-INSERT INTO articles (title, description, imgurl, article) VALUES($1, $2, $3, $4)
+INSERT INTO articles (userid, title, description, imgurl, article) VALUES($1, $2, $3, $4, $5)

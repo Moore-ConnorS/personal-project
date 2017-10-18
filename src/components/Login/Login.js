@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Navbar from './../navbar/Navbar'
+
+import './Login.css';
+import Navbar from './../navbar/Navbar';
 
 export default class Login extends Component {
     constructor(){
@@ -51,6 +53,7 @@ export default class Login extends Component {
             }).catch(error => {
                 this.setState({ message: 'Something went wrong: ' + this.getMessage(error) })
             })
+            
         }
 
         logout() {
@@ -61,6 +64,7 @@ export default class Login extends Component {
             })
         }
     render(){
+        console.log(res.data)
         const { user, showRegister, message } = this.state;
         const inputField = <div>
             Username: <input ref='username' />
@@ -86,9 +90,7 @@ export default class Login extends Component {
                         {!showRegister && <div>
                             <h2>Login</h2>
                             {inputField}
-                            <Link to='/'>
                             <button onClick={this.login}>Login</button>
-                            </Link>
                             </div>}
                             {message}
                     </div>

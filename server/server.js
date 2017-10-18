@@ -5,16 +5,21 @@ const express = require('express')
     , massive = require('massive')
     , cors = require('cors')
     , articleController = require('./controller/articleController')
-    , session = require('express-session');
+    , session = require('express-session')
+    , path = require('path')
 
     const app = express();
+
+    app.use( express.static( `${__dirname}/../build` ) );
     app.use( bodyParser.json() );
-    app.use( cors() )
+    app.use( cors() );
     app.use(session({
         secret: "super secrets",
         saveUninitialized: false,
         resave: false
     }));
+
+ 
 
     massive( process.env.CONNECTION_STRING ).then(db => {
         app.set('db', db)
@@ -35,7 +40,7 @@ const express = require('express')
 
     app.post('/register', (req, res) => {
         const { username, password } = req.body;
-        req.app.get('db').create_user([username, password]).then(() => {
+        req.app.get('db').createUser([username, password]).then(() => {
             req.session.user = { username };
             res.json({ username });
         }).catch(error => {
@@ -45,7 +50,7 @@ const express = require('express')
 
     app.post('/login', (req, res) => {
         const { username, password } = req.body;
-        app.get('db').find_user([username]).then(data => {
+        app.get('db').findUser([username]).then(data => {
             if (data.length) {
                 if (data[0].password === password) {
                     req.session.user = {username};
@@ -66,4 +71,8 @@ const express = require('express')
         res.send();
     })
 
+   app.get('*', (req, res)=>{
+        console.log("None Met");
+        res.sendFile(path.join(__dirname, '..','build','index.html'));
+      })
     
